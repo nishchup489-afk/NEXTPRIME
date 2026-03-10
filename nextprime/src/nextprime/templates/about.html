@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | NextPrime</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+font-family:'Inter',sans-serif;
+background:url('/static/bg.jpg') no-repeat center center fixed;
+background-size:cover;
+}
+
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.15);
+}
+</style>
+
+</head>
+
+<body class="text-white p-8 flex justify-center">
+
+<div class="max-w-4xl glass rounded-3xl p-12">
+
+<h1 class="text-5xl font-light mb-6">
+NEXTPRIME
+</h1>
+
+<p class="text-gray-300 text-sm mb-10">
+Project #5 of the <strong>100 Python Projects Series</strong>
+</p>
+
+<div class="space-y-4 text-sm text-gray-300">
+
+<p>
+Live preview :
+<strong>nextprime.onrender.com</strong>
+</p>
+
+<p>
+Github :
+<a class="underline" href="https://github.com/nishchup489-afk/NEXTPRIME">
+github.com/nishchup489-afk/NEXTPRIME
+</a>
+</p>
+
+<p>
+Github CLI Version :
+<a class="underline" href="https://github.com/nishchup489-afk/NEXTPRIME">
+CLI Source
+</a>
+</p>
+
+</div>
+
+<hr class="my-10 border-white/20">
+
+<h2 class="text-2xl mb-4">Project Overview</h2>
+
+<p class="text-gray-300 leading-relaxed">
+NextPrime is a Python application designed to generate a sequence of prime numbers starting from any user provided number.
+The system demonstrates the mathematical concept of prime detection combined with algorithmic optimization using square root reduction.
+</p>
+
+<p class="text-gray-300 mt-4">
+The project includes multiple interfaces:
+</p>
+
+<ul class="list-disc ml-6 text-gray-300 mt-3 space-y-1">
+<li>Pure Python CLI implementation</li>
+<li>Colorama styled CLI interface</li>
+<li>Rich based advanced terminal UI</li>
+<li>Textual interactive terminal UI</li>
+<li>FastAPI web interface</li>
+</ul>
+
+<hr class="my-10 border-white/20">
+
+<h2 class="text-2xl mb-4">Core Algorithm</h2>
+
+<p class="text-gray-300 mb-4">
+A number is considered prime if it is divisible only by 1 and itself.
+To efficiently determine primality, we only check divisibility up to the square root of the number.
+</p>
+
+<pre class="bg-black/40 p-6 rounded-xl text-green-300 text-sm overflow-x-auto">
+def isPrime(n):
+
+    if n &lt; 2:
+        return False
+
+    for i in range(2, int(n**0.5) + 1):
+
+        if n % i == 0:
+            return False
+
+    return True
+</pre>
+
+<hr class="my-10 border-white/20">
+
+<h2 class="text-2xl mb-4">Sequence Generation</h2>
+
+<pre class="bg-black/40 p-6 rounded-xl text-green-300 text-sm overflow-x-auto">
+def getNextPrime(start, limit):
+
+    primes = []
+    number = start
+
+    while len(primes) &lt; limit:
+
+        if isPrime(number):
+            primes.append(number)
+
+        number += 1
+
+    return primes
+</pre>
+
+<p class="text-gray-300 mt-4">
+The algorithm increments numbers starting from the input value and continuously checks each number for primality until the required number of primes has been generated.
+</p>
+
+<hr class="my-10 border-white/20">
+
+<h2 class="text-2xl mb-4">Algorithm Flow</h2>
+
+<pre class="bg-black/40 p-6 rounded-xl text-blue-300 text-sm">
+
+START
+ |
+ |-- User enters start number
+ |
+ |-- User enters limit
+ |
+ |-- Set current number = start
+ |
+ |-- Check if number is prime
+ |       |
+ |       |-- Yes → add to list
+ |       |
+ |       |-- No → skip
+ |
+ |-- Increase number
+ |
+ |-- Repeat until list size = limit
+ |
+END → display prime sequence
+
+</pre>
+
+<hr class="my-10 border-white/20">
+
+<h2 class="text-2xl mb-4">Tech Stack</h2>
+
+<ul class="list-disc ml-6 text-gray-300 space-y-1">
+
+<li>Python 3</li>
+<li>FastAPI</li>
+<li>TailwindCSS</li>
+<li>Poetry environment manager</li>
+<li>Render hosting</li>
+
+</ul>
+
+<hr class="my-10 border-white/20">
+
+<p class="text-gray-400 text-sm">
+Part of the 100 Python Projects journey — building real implementations to master algorithm design, backend engineering, and deployment.
+</p>
+
+<div class="mt-10">
+<a href="/" class="underline text-sm">← Back to App</a>
+</div>
+
+</div>
+
+</body>
+</html>

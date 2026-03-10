@@ -1,0 +1,1 @@
+from src.nextprime.main import app
